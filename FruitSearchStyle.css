@@ -2,16 +2,24 @@
   box-sizing: border-box;
 }
 
-:focus {
- /* TODO */
-}
 
 body {
-  background: purple;
+  width: 100vh;
+  height: 100vh;
+  background: linear-gradient(104deg, rgba(168,224,255,1) 0%, rgba(135,179,122,1) 100%);
 }
 
 input {
   width: 15vw;
+  font-family: Raleway, Verdana, sans-serif;
+  font-weight: bold;
+  font-size: 1.25em;
+  background-color: transparent;
+  border: 1px solid rgba(62, 81, 122, 1);
+}
+
+:focus {
+  outline: 2px solid rgba(62, 81, 122, 0.5);
 }
 
 .search-container {
@@ -20,35 +28,21 @@ input {
   left: 42.5vw;
 }
 
-.search-container input,
-.search-container .suggestions {
-}
-
-.search-container input {
-
-}
-
-.search-container .suggestions {
-}
-
 ul {
-}
-
-ul.has-suggestions {
+  font-family: Raleway, Verdana, sans-serif;
+  font-size: 1.25em;
+  padding: 0px;
+  margin: 0px;
+  background: linear-gradient(104deg, rgba(135,179,122,0.5) 0%, rgba(168, 224, 255, 0.5) 100%);
 }
 
 ul li {
+  list-style-type: none;
 }
 
 /* the directions recommended making an event listener to highlight on mouse over but the css seemed like a simpler way to do it with the same result */
 ul li:hover {
-  background: grey;
+  background: rgba(62,81, 122, 0.25);
   cursor: pointer;
+  font-weight: bold;
 }
-
-
-/* place the search bar in the middle of the page */
-
-	  /* select a font */
-	  /* change the drop-down menu styling */
-	  /* change the background to the gradient */ */

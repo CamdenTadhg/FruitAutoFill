@@ -3,6 +3,10 @@ const suggestions = document.querySelector('.suggestions ul');
 
 const fruits = ['Apple', 'Apricot', 'Avocado 🥑', 'Banana', 'Bilberry', 'Blackberry', 'Blackcurrant', 'Blueberry', 'Boysenberry', 'Currant', 'Cherry', 'Coconut', 'Cranberry', 'Cucumber', 'Custard apple', 'Damson', 'Date', 'Dragonfruit', 'Durian', 'Elderberry', 'Feijoa', 'Fig', 'Gooseberry', 'Grape', 'Raisin', 'Grapefruit', 'Guava', 'Honeyberry', 'Huckleberry', 'Jabuticaba', 'Jackfruit', 'Jambul', 'Juniper berry', 'Kiwifruit', 'Kumquat', 'Lemon', 'Lime', 'Loquat', 'Longan', 'Lychee', 'Mango', 'Mangosteen', 'Marionberry', 'Melon', 'Cantaloupe', 'Honeydew', 'Watermelon', 'Miracle fruit', 'Mulberry', 'Nectarine', 'Nance', 'Olive', 'Orange', 'Clementine', 'Mandarine', 'Tangerine', 'Papaya', 'Passionfruit', 'Peach', 'Pear', 'Persimmon', 'Plantain', 'Plum', 'Pineapple', 'Pomegranate', 'Pomelo', 'Quince', 'Raspberry', 'Salmonberry', 'Rambutan', 'Redcurrant', 'Salak', 'Satsuma', 'Soursop', 'Star fruit', 'Strawberry', 'Tamarillo', 'Tamarind', 'Yuzu'];
 
+document.addEventListener('DOMContentLoaded', () => {
+	input.focus();
+})
+
 function search(str) {
 	let results = [];
 	//search the string against each item
@@ -33,9 +37,11 @@ function showSuggestions(results) {
 	}
 }
 
+//populate the search bar with the suggestion
 function useSuggestion(event) {
 	input.value = event.target.innerText;
 	searchHandler();
+	//locate the cursor so the user can easily press enter to search
 	input.focus();
 }
 
@@ -45,7 +51,6 @@ suggestions.addEventListener('click', useSuggestion);
 
 
 
-//write the useSuggestion function to populate the search bar with the suggestion. 
-//style the page. Both the background and the search bar should show the gradient. 
+
 //see if I can figure out how to sort the results by their first index
 //see if I can figure out how to pull an image from google of the fruit in question to happen on that click. 
