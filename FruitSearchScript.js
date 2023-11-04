@@ -54,11 +54,6 @@ function useSuggestion(event) {
 	input.focus();
 }
 
-//event listener to trigger when the user types
+//event listeners to trigger when the user types and clicks
 input.addEventListener('keyup', searchHandler);
 suggestions.addEventListener('click', useSuggestion);
-
-
-
-
-//see if I can figure out how to pull an image from google of the fruit in question to happen on that click. 
