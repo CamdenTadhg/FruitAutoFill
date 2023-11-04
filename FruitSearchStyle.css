@@ -28,6 +28,12 @@ input {
   left: 42.5vw;
 }
 
+.suggestions {
+  height: 40vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
 ul {
   font-family: Raleway, Verdana, sans-serif;
   font-size: 1.25em;
