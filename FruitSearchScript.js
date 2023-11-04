@@ -7,14 +7,22 @@ document.addEventListener('DOMContentLoaded', () => {
 	input.focus();
 })
 
+//added simple function to make words that begin with the search string appear first. 
 function search(str) {
 	let results = [];
 	//search the string against each item
 	for (let fruit of fruits){
 		//match the string against the fruit array
 		if (fruit.toLowerCase().includes(str.toLowerCase())){
-			//if the item includes the string, add it to the results array
-			results.push(fruit);
+			let index = fruit.toLowerCase().indexOf(str.toLowerCase());
+			console.log('fruit is' + fruit + 'index is' + index);
+			//if the item starts with the string, return it first
+			if (index === 0){
+				results.splice(0, 0, fruit);
+			} else{
+			//if the item includes the string, add it to the end of the results
+				results.push(fruit);
+			}
 		}
 	}
 	return results;
@@ -53,4 +61,7 @@ suggestions.addEventListener('click', useSuggestion);
 
 
 //see if I can figure out how to sort the results by their first index
+	//determine the index of the search string in the result fruit
+	//determine a counter of how many matching values there have been
+	// splice the fruit in at the index and counter combined
 //see if I can figure out how to pull an image from google of the fruit in question to happen on that click. 
