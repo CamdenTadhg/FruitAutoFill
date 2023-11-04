@@ -16,13 +16,15 @@ function search(str) {
 	return results;
 }
 
-function searchHandler(e) {
+function searchHandler() {
+	suggestions.innerHTML = '';
 	//pull the value from the input field and run a search on it. 
-	searchString = document.getElementById('fruit').value;
-	showSuggestions(search(searchString));
+	searchString = input.value;
+	if (searchString !== ''){
+		showSuggestions(search(searchString));
+	}
 }
 
-//The initial code showed two parameters for this function, but I didn't see the need for a second one, so I removed it.  
 function showSuggestions(results) {
 	for (let result of results){
 		const resultLi = document.createElement('li');
@@ -31,8 +33,10 @@ function showSuggestions(results) {
 	}
 }
 
-function useSuggestion(e) {
-	// TODO
+function useSuggestion(event) {
+	input.value = event.target.innerText;
+	searchHandler();
+	input.focus();
 }
 
 //event listener to trigger when the user types
@@ -41,7 +45,6 @@ suggestions.addEventListener('click', useSuggestion);
 
 
 
-//add an event listener to trigger on hover. Write a function to highlight the suggestion and attach it to the event listener
 //write the useSuggestion function to populate the search bar with the suggestion. 
 //style the page. Both the background and the search bar should show the gradient. 
 //see if I can figure out how to sort the results by their first index

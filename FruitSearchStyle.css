@@ -1,5 +1,5 @@
 * {
-  /* box-sizing: border-box; */
+  box-sizing: border-box;
 }
 
 :focus {
@@ -7,40 +7,52 @@
 }
 
 body {
-  /* TODO */
+  background: purple;
 }
 
 input {
- /* TODO */
+  max-height: 45px;
 }
 
 .search-container {
- /* TODO */
+  min-width: 100vh;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
+
 .search-container input,
 .search-container .suggestions {
-  /* TODO */
 }
+
 .search-container input {
- /* TODO */
+
 }
+
 .search-container .suggestions {
-   /* TODO */
 }
 
 ul {
-  /* TODO */
-}
-ul.has-suggestions {
-  /* TODO */
-}
-ul li {
-  /* TODO */
-}
-ul li:hover {
-  background: grey;
+  position: relative;
 }
 
-input {
-   /* TODO */
+ul.has-suggestions {
 }
+
+ul li {
+}
+
+/* the directions recommended making an event listener to highlight on mouse over but the css seemed like a simpler way to do it with the same result */
+ul li:hover {
+  background: grey;
+  cursor: pointer;
+}
+
+
+/* place the search bar in the middle of the page */
+
+	  /* select a font */
+	  /* change the drop-down menu styling */
+	  /* change the background to the gradient */ */
