@@ -17,13 +17,18 @@ function search(str) {
 }
 
 function searchHandler(e) {
-	searchString = document.getElementById('fruit');
+	//pull the value from the input field and run a search on it. 
+	searchString = document.getElementById('fruit').value;
 	showSuggestions(search(searchString));
 }
 
+//The initial code showed two parameters for this function, but I didn't see the need for a second one, so I removed it.  
 function showSuggestions(results) {
-
-	// TODO
+	for (let result of results){
+		const resultLi = document.createElement('li');
+		resultLi.innerText = result;
+		suggestions.append(resultLi);
+	}
 }
 
 function useSuggestion(e) {
@@ -35,10 +40,7 @@ input.addEventListener('keyup', searchHandler);
 suggestions.addEventListener('click', useSuggestion);
 
 
-//write the search function that will trigger based on the event listener you created. The function will return a list called results
-	//when the key comes up, collect the string from the input
-//write the searchHandler function to bring together the other functions(?)
-//write the showSuggestions function to take the list created in the previous step and show it in a drop down below the search bar
+
 //add an event listener to trigger on hover. Write a function to highlight the suggestion and attach it to the event listener
 //write the useSuggestion function to populate the search bar with the suggestion. 
 //style the page. Both the background and the search bar should show the gradient. 
