@@ -41,7 +41,12 @@ function searchHandler() {
 function showSuggestions(results) {
 	for (let result of results){
 		const resultLi = document.createElement('li');
-		resultLi.innerText = result;
+		let searchStr = input.value.toLowerCase();
+		if (result.toLowerCase().indexOf(searchStr) === 0){
+			resultLi.innerHTML = result.replaceAll(searchStr[0].toUpperCase() + searchStr.slice(1, searchStr.length), `<b>${searchStr[0].toUpperCase()}${searchStr.slice(1, searchStr.length)}</b>`);
+		} else {
+		resultLi.innerHTML = result.replaceAll(searchStr, `<b>${searchStr}</b>`);
+		}
 		suggestions.append(resultLi);
 	}
 }
@@ -57,3 +62,9 @@ function useSuggestion(event) {
 //event listeners to trigger when the user types and clicks
 input.addEventListener('keyup', searchHandler);
 suggestions.addEventListener('click', useSuggestion);
+
+
+//bold the matching text in the search string
+	//where does this code go? (show Suggestions)
+	//identify the part of the result that matches the search string (case insensitive)
+	//build the suggested result out of a splice of the part before the necessary index, the necessary index, and the part after the neceessary index
