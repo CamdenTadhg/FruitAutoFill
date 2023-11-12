@@ -15,15 +15,21 @@ function search(str) {
 	for (let fruit of fruits){
 		//match the string against the fruit array
 		if (fruit.toLowerCase().includes(str.toLowerCase())){
-			let index = fruit.toLowerCase().indexOf(str.toLowerCase());
-			//if the item starts with the string, return it first
-			if (index === 0){
-				results.splice(counter, 0, fruit);
-				counter++;
-			} else{
-			//if the item includes the string, add it to the end of the results
-				results.push(fruit);
-			}
+			results.push(fruit);
+		}
+	}
+	sortResults(results, str);
+	return results;
+}
+
+function sortResults(results, str){
+	for (let i = 0; i < results.length; i++){
+		let index = results[i].toLowerCase().indexOf(str.toLowerCase());
+		let counter = 0;
+		if (index === 0){
+			results.splice(counter, 0, results[i]);
+			results.splice(i + 1, 1);
+			counter++;
 		}
 	}
 	return results;
@@ -42,11 +48,8 @@ function showSuggestions(results) {
 	for (let result of results){
 		const resultLi = document.createElement('li');
 		let searchStr = input.value.toLowerCase();
-		if (result.toLowerCase().indexOf(searchStr) === 0){
-			resultLi.innerHTML = result.replaceAll(searchStr[0].toUpperCase() + searchStr.slice(1, searchStr.length), `<b>${searchStr[0].toUpperCase()}${searchStr.slice(1, searchStr.length)}</b>`);
-		} else {
-		resultLi.innerHTML = result.replaceAll(searchStr, `<b>${searchStr}</b>`);
-		}
+		let regex = new RegExp('(' + searchStr + ')', 'gi');
+		resultLi.innerHTML = result.replace(regex, '<b>$1</b>');
 		suggestions.append(resultLi);
 	}
 }
@@ -54,7 +57,7 @@ function showSuggestions(results) {
 //populate the search bar with the suggestion
 function useSuggestion(event) {
 	input.value = event.target.innerText;
-	searchHandler();
+	suggestions.innerHTML = '';
 	//locate the cursor so the user can easily press enter to search
 	input.focus();
 }
@@ -64,7 +67,5 @@ input.addEventListener('keyup', searchHandler);
 suggestions.addEventListener('click', useSuggestion);
 
 
-//bold the matching text in the search string
-	//where does this code go? (show Suggestions)
-	//identify the part of the result that matches the search string (case insensitive)
-	//build the suggested result out of a splice of the part before the necessary index, the necessary index, and the part after the neceessary index
+//bold the matching text
+//pull image of fruit
