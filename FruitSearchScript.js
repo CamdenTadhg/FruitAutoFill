@@ -1,16 +1,14 @@
 const input = document.querySelector('#fruit');
 const suggestions = document.querySelector('.suggestions ul');
 
-const fruits = ['Apple', 'Apricot', 'Avocado 🥑', 'Banana', 'Bilberry', 'Blackberry', 'Blackcurrant', 'Blueberry', 'Boysenberry', 'Cantaloupe',  'Cherry', 'Clementine', 'Coconut', 'Cranberry', 'Cucumber', 'Currant', 'Custard apple', 'Damson', 'Date', 'Dragonfruit', 'Durian', 'Elderberry', 'Feijoa', 'Fig', 'Gooseberry', 'Grape', 'Raisin', 'Grapefruit', 'Guava', 'Honeyberry','Honeydew', 'Huckleberry', 'Jabuticaba', 'Jackfruit', 'Jambul', 'Juniper berry', 'Kiwifruit', 'Kumquat', 'Lemon', 'Lime', 'Loquat', 'Longan', 'Lychee', 'Mandarine', 'Mango', 'Mangosteen', 'Marionberry', 'Melon', 'Miracle fruit', 'Mulberry', 'Nectarine', 'Nance', 'Olive', 'Orange', 'Papaya', 'Passionfruit', 'Peach', 'Pear', 'Persimmon', 'Plantain', 'Plum', 'Pineapple', 'Pomegranate', 'Pomelo', 'Quince', 'Raspberry', 'Salmonberry', 'Rambutan', 'Redcurrant', 'Salak', 'Satsuma', 'Soursop', 'Star fruit', 'Strawberry', 'Tamarillo', 'Tamarind', 'Tangerine', 'Watermelon', 'Yuzu'];
+const fruits = ['Acai', 'Ackee', 'Apple', 'Apricot', 'Avocado', 'Banana', 'Bilberry', 'Blackberry', 'Blackcurrant', 'Blueberry', 'Boysenberry', 'Breadfruit', 'Canary Melon', 'Cantaloupe', 'Carambola', 'Casaba Melon', 'Cherimoya',  'Cherry', 'Clementine', 'Cloudberry', 'Coconut', 'Cranberry', 'Crenshaw Melon', 'Cucumber', 'Currant', 'Custard apple', 'Damson', 'Date', 'Dragonfruit', 'Durian', 'Eggfruit', 'Elderberry', 'Feijoa', 'Fig', 'Gooseberry', 'Grape', 'Grapefruit', 'Guava', 'Honeyberry','Honeydew', 'Huckleberry', 'Jabuticaba', 'Jackfruit', 'Jambul', 'Juniper berry', 'Kiwifruit', 'Kumquat', 'Lemon', 'Lime', 'Loganberry', 'Loquat', 'Longan', 'Lychee', 'Mandarine', 'Mango', 'Mangosteen', 'Marionberry', 'Melon', 'Miracle fruit', 'Mulberry', 'Nance', 'Nectarine', 'Olive', 'Orange', 'Papaya', 'Passionfruit', 'Pawpaw', 'Peach', 'Pear', 'Persimmon', 'Pineapple', 'Plantain', 'Plum', 'Pomegranate', 'Pomelo', 'Prickly Pear', 'Pulasan', 'Quince', 'Rambutan', 'Raspberry', 'Redcurrant', 'Rose Apple', 'Salak', 'Salmonberry', 'Sapodilla', 'Satsuma', 'Soursop', 'Star fruit', 'Strawberry', 'Sugar Apple', 'Tamarillo', 'Tamarind', 'Tangelo', 'Tangerine', 'Ugli', 'Watermelon', 'Yuzu'];
 
 document.addEventListener('DOMContentLoaded', () => {
 	input.focus();
 })
 
-//added simple function to make words that begin with the search string appear first. 
 function search(str) {
 	let results = [];
-	let counter = 0;
 	//search the string against each item
 	for (let fruit of fruits){
 		//match the string against the fruit array
@@ -22,6 +20,7 @@ function search(str) {
 	return results;
 }
 
+//added simple function to make words that begin with the search string appear first. 
 function sortResults(results, str){
 	for (let i = 0; i < results.length; i++){
 		let index = results[i].toLowerCase().indexOf(str.toLowerCase());
